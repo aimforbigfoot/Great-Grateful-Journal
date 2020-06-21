@@ -4,3 +4,6 @@
 <h4>Screenshots</h4>
 
 ![](images/main.png)
+![](images/third.png)
+
+I think that's all the images you really need. Anyway, here is the twitch page where you can download this app. And please let me know if you have any ideas or features you want to add. Maybe you could pull request them.
