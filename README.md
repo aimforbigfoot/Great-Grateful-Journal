@@ -13,5 +13,5 @@ I think that's all the images you really need. Anyway, here is the twitch page w
 <h4>Screenshots</h4>
 
 ![](images/main.png)
-![](images/third.png)
+![](images/second.png)
 
