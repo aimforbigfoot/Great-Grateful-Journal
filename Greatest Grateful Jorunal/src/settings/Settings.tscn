@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/settings/Settings_control.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/settings/temp_save.gd" type="Script" id=2]
+
+[node name="Settings" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Settings_control" parent="." instance=ExtResource( 1 )]
+[connection signal="back_btn_pressed" from="." to="Settings_control" method="_on_Settings_back_btn_pressed"]

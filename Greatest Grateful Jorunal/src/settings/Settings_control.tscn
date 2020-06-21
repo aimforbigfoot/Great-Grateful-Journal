@@ -1,0 +1,256 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/all_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/Kenney Future Narrow.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/settings_label_styles.tres" type="StyleBox" id=3]
+[ext_resource path="res://src/settings/Settings_control.gd" type="Script" id=4]
+[ext_resource path="res://assets/button_styles/del_btn_styles/normal_del_btn.tres" type="StyleBox" id=5]
+[ext_resource path="res://assets/button_styles/del_btn_styles/pressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://assets/button_styles/del_btn_styles/disabled.tres" type="StyleBox" id=7]
+[ext_resource path="res://assets/button_styles/del_btn_styles/hover_del_btn.tres" type="StyleBox" id=8]
+[ext_resource path="res://assets/fonts/all_editable_texts.tres" type="DynamicFont" id=9]
+[ext_resource path="res://src/Particles2D.tscn" type="PackedScene" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+font_data = ExtResource( 2 )
+
+[node name="Settings_control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.36038
+margin_bottom = -1.36035
+rect_min_size = Vector2( 1280, 720 )
+size_flags_horizontal = 5
+size_flags_vertical = 5
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 151.856
+margin_top = 98.8019
+margin_right = 1175.86
+margin_bottom = 610.802
+size_flags_horizontal = 4
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="all_container" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 1024.0
+margin_bottom = 744.0
+rect_min_size = Vector2( 1024, 512 )
+custom_constants/separation = 45
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings_label" type="Label" parent="ScrollContainer/all_container"]
+margin_right = 1024.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 6
+custom_constants/shadow_offset_y = 6
+text = "Settings"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/all_container"]
+margin_top = 117.0
+margin_right = 1024.0
+margin_bottom = 224.0
+custom_constants/separation = 15
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="particles_label" type="Label" parent="ScrollContainer/all_container/VBoxContainer"]
+margin_left = 207.0
+margin_right = 816.0
+margin_bottom = 66.0
+size_flags_horizontal = 4
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "Would you like the particles?"
+align = 1
+
+[node name="particles_btn" type="CheckBox" parent="ScrollContainer/all_container/VBoxContainer"]
+margin_left = 242.0
+margin_top = 81.0
+margin_right = 782.0
+margin_bottom = 107.0
+size_flags_horizontal = 4
+custom_styles/focus = SubResource( 3 )
+custom_fonts/font = ExtResource( 9 )
+pressed = true
+text = "Check for particles, leave unchecked for no particles"
+
+[node name="size_of_text" type="VBoxContainer" parent="ScrollContainer/all_container"]
+margin_top = 269.0
+margin_right = 1024.0
+margin_bottom = 405.0
+custom_constants/separation = 15
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="particles_label" type="Label" parent="ScrollContainer/all_container/size_of_text"]
+margin_left = 119.0
+margin_right = 905.0
+margin_bottom = 66.0
+size_flags_horizontal = 4
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "Would you like to change the text size?"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/all_container/size_of_text"]
+margin_left = 262.0
+margin_top = 81.0
+margin_right = 762.0
+margin_bottom = 101.0
+rect_min_size = Vector2( 500, 20 )
+size_flags_horizontal = 4
+min_value = 16.0
+max_value = 24.0
+value = 16.0
+rounded = true
+tick_count = 9
+ticks_on_borders = true
+
+[node name="slider_label" type="Label" parent="ScrollContainer/all_container/size_of_text"]
+margin_left = 262.0
+margin_top = 116.0
+margin_right = 762.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 500, 20 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 9 )
+text = "Text Size: 16"
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/all_container"]
+margin_top = 450.0
+margin_right = 1024.0
+margin_bottom = 549.0
+custom_constants/separation = 15
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="data_clear_label" type="Label" parent="ScrollContainer/all_container/VBoxContainer2"]
+margin_left = 170.0
+margin_right = 853.0
+margin_bottom = 66.0
+size_flags_horizontal = 4
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "Would you like to clear all data?"
+align = 1
+
+[node name="data_btn" type="Button" parent="ScrollContainer/all_container/VBoxContainer2"]
+margin_left = 292.0
+margin_top = 81.0
+margin_right = 732.0
+margin_bottom = 99.0
+size_flags_horizontal = 4
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+text = "Yes, clear every single line I have ever written"
+
+[node name="dbl_check_btn" type="Button" parent="ScrollContainer/all_container/VBoxContainer2"]
+visible = false
+margin_left = 224.0
+margin_top = 114.0
+margin_right = 800.0
+margin_bottom = 137.0
+size_flags_horizontal = 4
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.827451, 0.533333, 0.533333, 1 )
+text = "Once You click this button, there is no going back"
+
+[node name="confirm_label" type="Label" parent="ScrollContainer/all_container/VBoxContainer2"]
+visible = false
+margin_top = 114.0
+margin_right = 1024.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 9 )
+text = "All data erased"
+align = 1
+valign = 1
+
+[node name="Export" type="VBoxContainer" parent="ScrollContainer/all_container"]
+margin_top = 594.0
+margin_right = 1024.0
+margin_bottom = 744.0
+rect_min_size = Vector2( 1024, 150 )
+custom_constants/separation = 15
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="particles_label" type="Label" parent="ScrollContainer/all_container/Export"]
+margin_left = 57.0
+margin_right = 966.0
+margin_bottom = 66.0
+size_flags_horizontal = 4
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "Would you like to export your gratefullness"
+align = 1
+
+[node name="export_button" type="Button" parent="ScrollContainer/all_container/Export"]
+margin_left = 416.0
+margin_top = 81.0
+margin_right = 607.0
+margin_bottom = 150.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
+text = "Expiort all my stuff"
+
+[node name="Particles2D" parent="." instance=ExtResource( 10 )]
+position = Vector2( -640, 360 )
+[connection signal="toggled" from="ScrollContainer/all_container/VBoxContainer/particles_btn" to="." method="_on_particles_btn_toggled"]
+[connection signal="value_changed" from="ScrollContainer/all_container/size_of_text/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="ScrollContainer/all_container/VBoxContainer2/data_btn" to="." method="_on_data_btn_pressed"]
+[connection signal="pressed" from="ScrollContainer/all_container/VBoxContainer2/dbl_check_btn" to="." method="_on_dbl_check_btn_pressed"]
+[connection signal="pressed" from="ScrollContainer/all_container/Export/export_button" to="." method="_on_export_button_pressed"]

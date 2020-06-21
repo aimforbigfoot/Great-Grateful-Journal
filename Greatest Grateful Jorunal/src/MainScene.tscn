@@ -1,0 +1,191 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://src/Control.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/settings/settings_hover.png" type="Texture" id=2]
+[ext_resource path="res://assets/settings/settings_normal.png" type="Texture" id=3]
+[ext_resource path="res://assets/settings/settings_pressed.png" type="Texture" id=4]
+[ext_resource path="res://src/settings/Settings.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/MainScene.gd" type="Script" id=6]
+[ext_resource path="res://assets/Kenney Future Narrow.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://src/loading_label.gd" type="Script" id=8]
+[ext_resource path="res://assets/back/back_pressed.png" type="Texture" id=9]
+[ext_resource path="res://assets/back/back_hover.png" type="Texture" id=10]
+[ext_resource path="res://assets/back/back_normal.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "bye_settings"
+tracks/0/type = "value"
+tracks/0/path = NodePath("SettingsScene:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1280, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainScene:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -1280, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainScene:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -1280, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SettingsScene:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1280, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainScene:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.153893, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -720 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("loading_label:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("loading_label")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "destroy"
+} ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+font_data = ExtResource( 7 )
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="MainScene" parent="." instance=ExtResource( 1 )]
+margin_top = -720.0
+margin_right = 1000.0
+margin_bottom = 30.0
+
+[node name="SettingsScene" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1280, 0 )
+
+[node name="ScrollContainer" parent="SettingsScene/Settings_control" index="0"]
+scroll_vertical = 100
+
+[node name="all_container" parent="SettingsScene/Settings_control/ScrollContainer" index="0"]
+margin_top = -100.0
+margin_bottom = 644.0
+
+[node name="Settings" type="TextureButton" parent="."]
+show_behind_parent = true
+margin_left = 20.0
+margin_top = 640.0
+margin_right = 84.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 64, 64 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_btn" type="TextureButton" parent="."]
+visible = false
+show_behind_parent = true
+margin_left = 20.0
+margin_top = 640.0
+margin_right = 84.0
+margin_bottom = 704.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/bye_settings = SubResource( 1 )
+anims/come_in_settings = SubResource( 2 )
+anims/start_anim = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="loading_label" type="Label" parent="."]
+margin_left = 479.407
+margin_top = 329.45
+margin_right = 770.407
+margin_bottom = 401.45
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.964706, 0.964706, 0.964706, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 8
+custom_constants/shadow_offset_y = 8
+text = "LOADING"
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="erase_now" from="SettingsScene/Settings_control" to="MainScene" method="_on_Settings_control_erase_now"]
+[connection signal="toggled" from="SettingsScene/Settings_control/ScrollContainer/all_container/VBoxContainer/particles_btn" to="." method="_on_particles_btn_toggled"]
+[connection signal="pressed" from="Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="back_btn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="back_btn" to="SettingsScene" method="_on_back_btn_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[editable path="SettingsScene"]
+
+[editable path="SettingsScene/Settings_control"]

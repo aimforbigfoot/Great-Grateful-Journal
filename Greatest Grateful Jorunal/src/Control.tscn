@@ -1,0 +1,149 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://src/MainControl.gd" type="Script" id=1]
+[ext_resource path="res://assets/Kenney Future Narrow.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/all_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/button_styles/normal.tres" type="StyleBox" id=4]
+[ext_resource path="res://assets/button_styles/hover.tres" type="StyleBox" id=5]
+[ext_resource path="res://assets/button_styles/pressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://assets/line_edit_styles/line_edit_normal.tres" type="StyleBox" id=7]
+[ext_resource path="res://assets/line_edit_styles/line_edit_focus.tres" type="StyleBox" id=8]
+[ext_resource path="res://assets/fonts/all_editable_texts.tres" type="DynamicFont" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id=5]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("error_text:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 4.8 ),
+"transitions": PoolRealArray( 0.31864, 2.07053, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="MainControl" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1000, 750 )
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="grateful_text" type="Label" parent="."]
+margin_left = 47.4882
+margin_top = 54.4018
+margin_right = 334.488
+margin_bottom = 129.402
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
+text = "What are you grateful for?"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="error_text" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_top = 156.801
+margin_right = 1272.0
+margin_bottom = 222.801
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 0.803922, 0.243137, 0.0705882, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "asdfsdafsadfsdfw"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 392.0
+margin_top = 51.5819
+margin_right = 1054.0
+margin_bottom = 130.582
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
+custom_fonts/font = ExtResource( 9 )
+text = "sadfsdf"
+clear_button_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubmitBtn" type="Button" parent="."]
+margin_left = 1098.58
+margin_top = 47.9854
+margin_right = 1241.58
+margin_bottom = 134.985
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
+text = "Submit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 90.3388
+margin_top = 246.695
+margin_right = 1212.34
+margin_bottom = 678.695
+rect_min_size = Vector2( 1122, 432 )
+custom_styles/bg = SubResource( 4 )
+follow_focus = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_left = 49.0
+margin_top = 16.0
+margin_right = 1073.0
+margin_bottom = 416.0
+grow_horizontal = 2
+rect_min_size = Vector2( 1024, 400 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_constants/separation = 32
+alignment = 1
+
+[node name="Node" type="Node" parent="ScrollContainer/VBoxContainer" groups=[
+"ignore",
+]]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/text_fade = SubResource( 5 )
+[connection signal="tree_exiting" from="." to="." method="_on_Control_tree_exiting"]
+[connection signal="pressed" from="SubmitBtn" to="." method="_on_SubmitBtn_pressed"]
