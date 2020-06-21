@@ -93,8 +93,8 @@ margin_bottom = 130.582
 custom_styles/focus = ExtResource( 8 )
 custom_styles/normal = ExtResource( 7 )
 custom_fonts/font = ExtResource( 9 )
-text = "sadfsdf"
 clear_button_enabled = true
+placeholder_text = "for example: My family"
 __meta__ = {
 "_edit_use_anchors_": false
 }
