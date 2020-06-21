@@ -36,8 +36,10 @@ func _on_particles_btn_toggled(button_pressed: bool) -> void:
 
 
 func _on_export_button_pressed() -> void:
+	OS.alert("Sorry, this is still a work in progress. I will be updating this link very soon.", "Hey wait a minute")
 #	replace with youtube video that explains how to import and export data
-	OS.shell_open("https://youtube.com/")
+#	OS.shell_open("https://youtube.com/")
+	pass
 
 
 func _on_HSlider_value_changed(value: float) -> void:
