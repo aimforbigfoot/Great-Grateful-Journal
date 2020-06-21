@@ -19,7 +19,7 @@ func _ready() -> void:
 		user_strings_arr = SaveScript.load_data_data()
 		date_arr = SaveScript.load_date_data()
 		for num in user_strings_arr.size():
-			var new_block := preload("res://src/Contro2l.tscn").instance()
+			var new_block := preload("res://src/TemplateNode.tscn").instance()
 			new_block.get_child(0).get_child(0).text = user_strings_arr[num]
 			new_block.get_child(0).get_child(1).text = date_arr[num]
 			vboxContainer.add_child_below_node(vboxContainer.get_child(0), new_block)
@@ -53,7 +53,7 @@ func insert_text() -> void:
 		set_error_text("You need to type some text, you can't leave it empty :(")
 	else:
 		
-		var new_block := preload("res://src/Contro2l.tscn").instance()
+		var new_block := preload("res://src/TemplateNode.tscn").instance()
 		var day_var : String = str(OS.get_date()["day"])
 		var year_var : String = str(OS.get_date()["year"])
 		var month_var : String = str(OS.get_date()["month"])

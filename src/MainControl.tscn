@@ -14,9 +14,9 @@
 size = 32
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 border_width_left = 4
 border_width_top = 4
@@ -28,7 +28,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("error_text:modulate")
@@ -106,7 +106,7 @@ margin_right = 1241.58
 margin_bottom = 134.985
 custom_styles/hover = ExtResource( 5 )
 custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = SubResource( 3 )
+custom_styles/focus = SubResource( 2 )
 custom_styles/normal = ExtResource( 4 )
 custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
@@ -121,7 +121,7 @@ margin_top = 246.695
 margin_right = 1212.34
 margin_bottom = 678.695
 rect_min_size = Vector2( 1122, 432 )
-custom_styles/bg = SubResource( 4 )
+custom_styles/bg = SubResource( 3 )
 follow_focus = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -144,6 +144,6 @@ alignment = 1
 ]]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/text_fade = SubResource( 5 )
+anims/text_fade = SubResource( 4 )
 [connection signal="tree_exiting" from="." to="." method="_on_Control_tree_exiting"]
 [connection signal="pressed" from="SubmitBtn" to="." method="_on_SubmitBtn_pressed"]
